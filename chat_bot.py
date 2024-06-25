@@ -1,4 +1,17 @@
 import Levenshtein
+import argparse
+parser = argparse.ArgumentParser(description='Exemplo de script que usa dois argumentos de linha de comando do mesmo tipo.')
+
+# Adiciona argumentos
+parser.add_argument('mensagem1', type=str, help='A primeira mensagem a ser impressa.')
+parser.add_argument('mensagem2', type=str, help='A segunda mensagem a ser impressa.')
+
+# Analisa os argumentos
+args = parser.parse_args()
+
+# Usa os argumentos
+print("Mensagem 1:", args.mensagem1)
+print("Mensagem 2:", args.mensagem2)
 
 def carregar_perguntas(arquivo):
   perguntas_respostas = {}
