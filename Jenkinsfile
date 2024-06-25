@@ -1,6 +1,9 @@
 pipeline {
     agent any
-
+    parameters {
+        string(name: 'DISTANCIA', description: 'Limiar de distancia de busca.')
+        string(name: 'PERGUNTA', description: 'Pergunta a ser feita')
+    }
     stages {
         stage('Preparação do Ambiente') {
             steps {
@@ -29,7 +32,7 @@ pipeline {
 
         stage('Execução do Chatbot') {
             steps {
-                sh 'python3 chat_bot.py'
+                sh 'python3 chat_bot.py ${DISTANCIA} ${PERGUNTA}'
             }
         }
     }
