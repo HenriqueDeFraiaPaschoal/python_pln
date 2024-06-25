@@ -38,7 +38,7 @@ def encontrar_resposta(pergunta, perguntas_respostas, limiar_distancia=5):
 
 if __name__ == "__main__":
   perguntas_respostas = carregar_perguntas("perguntas.txt")
-  limiar_distancia = 20
-  pergunta = "quem criou você?"
+  limiar_distancia = int(args.mensagem1)
+  pergunta = args.mensagem2
   resposta = encontrar_resposta(pergunta, perguntas_respostas, limiar_distancia)
   print("Resposta:", resposta)
