@@ -1,17 +1,5 @@
 import Levenshtein
-import argparse
-parser = argparse.ArgumentParser(description='Exemplo de script que usa dois argumentos de linha de comando do mesmo tipo.')
-
-# Adiciona argumentos
-parser.add_argument('mensagem1', type=str, help='A primeira mensagem a ser impressa.')
-parser.add_argument('mensagem2', type=str, help='A segunda mensagem a ser impressa.')
-
-# Analisa os argumentos
-args = parser.parse_args()
-
-# Usa os argumentos
-print("Mensagem 1:", args.mensagem1)
-print("Mensagem 2:", args.mensagem2)
+import sys
 
 def carregar_perguntas(arquivo):
   perguntas_respostas = {}
@@ -38,7 +26,7 @@ def encontrar_resposta(pergunta, perguntas_respostas, limiar_distancia=5):
 
 if __name__ == "__main__":
   perguntas_respostas = carregar_perguntas("perguntas.txt")
-  limiar_distancia = int(args.mensagem1)
-  pergunta = args.mensagem2
+  limiar_distancia = int(sys.argv[1])
+  pergunta = sys.argv[2]
   resposta = encontrar_resposta(pergunta, perguntas_respostas, limiar_distancia)
   print("Resposta:", resposta)
