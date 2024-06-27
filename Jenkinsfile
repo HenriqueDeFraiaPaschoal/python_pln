@@ -36,4 +36,9 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            mail body: 'Build de pergunta executado', cc: '', from: 'hfraia@yahoo.com.br', subject: 'Executado Build', to: 'hfraia@yahoo.com.br'
+        }
+    }
 }
